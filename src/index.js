@@ -2,6 +2,8 @@ import React from "react";
 import { render } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 
+import * as serviceWorkerRegistration from './serviceWorkerRegistration'
+
 import App from "./App";
 // import { UserProvider } from './contexts/user.context';
 // import { CategoriesProvider } from './contexts/categories.context';
@@ -11,7 +13,9 @@ import { Provider } from "react-redux";
 import { persistor, store } from "./store/store";
 
 import "./index.scss";
+
 import { PersistGate } from "redux-persist/integration/react";
+
 import { stripePromise } from "./utils/stripe/stripe.utils";
 import { Elements } from "@stripe/react-stripe-js";
 
@@ -37,3 +41,6 @@ render(
   </React.StrictMode>,
   rootElement
 );
+
+
+serviceWorkerRegistration.register();
